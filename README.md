@@ -22,8 +22,3 @@ docker compose up -d
 docker exec -it pokemon bash -c "composer install && cp .env.example .env && php artisan key:generate && npm install && npm run build"
 
 ```
-# pokedex-laravel
-# pokedex-react
-# pokedex-react
-# pokedex-react-test
-# pokedex-react
