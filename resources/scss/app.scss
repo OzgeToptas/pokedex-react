@@ -1,0 +1,249 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+    background-color: #202324;
+}
+
+.toolbar {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+        color: #fff;
+        font-size: 30px;
+        text-transform: capitalize;
+        font-weight: 600;
+    }
+}
+.not-found {
+    color: white;
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+.poke-no {
+    position: absolute;
+    top: 12.5%;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 5px;
+}
+.poke-name {
+    color: white;
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.pokeItemContainer {
+    position: relative;
+    width: 100%;
+    border-radius: 7px;
+    box-shadow: rgb(0 0 0 / 67%) 3px 4px 11px 0px;
+    > div:first-child {
+        position: relative;;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-inline: auto;
+        padding-block: 128px;
+    }
+    img {
+        position: absolute;
+        width: 170px;
+        height: 170px;
+        bottom: 10px;
+    }
+    .detail {
+        background-color: #181a1b;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        padding-bottom: 10px;
+        .attributes {
+            display: flex;
+            flex-wrap: wrap;
+            margin-inline: auto;
+            p {
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.pagination {
+    margin-top: 25px;
+    .prev-btn, .next-btn {
+        display: flex;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 11px;
+        text-align: center;
+        padding-block: 12px;
+        align-items: center;
+        gap: 10px;
+    }
+    .page-btn {
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+        color: rgba(255, 255, 255, 0.7);
+        &.active {
+            background-color: #181a1b;
+        }
+    }
+}
+
+.detail-container {
+    padding-top: 100px;
+    margin-inline: 250px;
+    .go-back {
+        color: #e8e6e3;
+        margin-bottom: 10px;
+    }
+    .img {
+        position: relative;
+        height: 75vh;
+        display: grid;
+        align-content: space-between;
+        border-radius: 8px;
+        box-shadow: rgb(0 0 0 / 67%) 3px 4px 11px 0px;
+        div {
+            display: flex;
+            flex-direction: column;
+            padding-left: 20px;
+            padding-top: 20px;
+            .poke-no {
+                font-size: 30px;
+                position: unset;
+            }
+            .poke-name {
+                font-size: 40px;
+                opacity: .75;
+            }
+        }
+        img {
+            width: 80%;
+            margin: auto;
+            margin-bottom: 15px;
+        }
+    }
+    .pokemon-detail {
+        padding-left: 50px;
+        h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        p {
+            color: rgba(163, 155, 143, 0.75);
+            margin-block: 20px;
+            width: 80%;
+        }
+        ul {
+            margin-top: 10px;
+            li {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                column-gap: 5px;
+                margin-bottom: 15px;
+                font-size: 18px;
+                span {
+                    font-size: 18px;
+                }
+                span:first-child {
+                    color: rgba(163, 155, 143, 0.75);
+                }
+                span:last-child {
+                    color: #e8e6e3;
+                }
+                ul li {
+                    color: #e8e6e3;
+                    margin-bottom: unset
+                }
+            }
+        }
+    }
+}
+
+.loader {
+    color: #fff;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    animation: mulShdSpin 1.3s infinite linear;
+    transform: translateZ(0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes mulShdSpin {
+    0%,
+    100% {
+      box-shadow: 0 -3em 0 0.2em,
+      2em -2em 0 0em, 3em 0 0 -1em,
+      2em 2em 0 -1em, 0 3em 0 -1em,
+      -2em 2em 0 -1em, -3em 0 0 -1em,
+      -2em -2em 0 0;
+    }
+    12.5% {
+      box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em,
+      3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em,
+      -2em 2em 0 -1em, -3em 0 0 -1em,
+      -2em -2em 0 -1em;
+    }
+    25% {
+      box-shadow: 0 -3em 0 -0.5em,
+      2em -2em 0 0, 3em 0 0 0.2em,
+      2em 2em 0 0, 0 3em 0 -1em,
+      -2em 2em 0 -1em, -3em 0 0 -1em,
+      -2em -2em 0 -1em;
+    }
+    37.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+       3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em,
+       -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+       3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em,
+       -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em,
+       3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0,
+       -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+      box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em,
+      3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+      -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+      box-shadow: 0em -3em 0 0, 2em -2em 0 -1em,
+      3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em,
+      -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+  }

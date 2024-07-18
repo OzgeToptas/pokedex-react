@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      args:
+        user: pokemon
+        uid: 1000
+      context: ./docker
+      dockerfile: Dockerfile
+    image: localhost
+    container_name: pokemon
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/php.ini
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+    networks:
+      - pokemonNet
+    depends_on:
+      - nginx
+
+  nginx:
+    image: nginx:alpine
+    container_name: pokemon-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d/
+    networks:
+      - pokemonNet
+
+networks:
+  pokemonNet:
+    driver: bridge
